@@ -1,9 +1,9 @@
-const getRankingList = () => {
-  return fetch("/ranking")
+const getRankingList = async () => {
+  return await fetch("/ranking")
     .then((res) => res.json())
     .then((res) => {
-      return res.data;
-    });
-};
+      return res.data
+    })
+}
 
-export default getRankingList;
+export default getRankingList

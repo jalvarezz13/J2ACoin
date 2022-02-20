@@ -1,6 +1,6 @@
-import React from "react";
-import "./App.css";
-import CryptoRanking from "./components/CryptoRanking/CryptoRanking";
+import React from "react"
+import "./app.css"
+import CryptoRanking from "./components/CryptoRanking/CryptoRanking"
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className="exchanges-links">Links de Exchanges</div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

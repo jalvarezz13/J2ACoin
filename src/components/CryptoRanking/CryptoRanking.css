@@ -1,12 +1,13 @@
+/* Ranking list */
 .ranking-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .coin-logo {
-    width: 64px;
-    height: auto;
+  width: 64px;
+  height: auto;
 }

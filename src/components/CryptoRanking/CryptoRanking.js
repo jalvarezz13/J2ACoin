@@ -1,35 +1,27 @@
-import React, { useState, useEffect } from "react";
-import getRankingList from "../../services/getRankingList";
-// import PropTypes from 'prop-types'
-
-import "./CryptoRanking.css";
+import React, { useState, useEffect } from "react"
+import getRankingList from "../../services/getRankingList"
+import CryptoRankingItem from "../CryptoRankingItem/CryptoRanking/CryptoRankingItem"
+import Loading from "../Loading/Loading"
+import "./cryptoRanking.css"
 
 const CryptoRanking = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState()
 
   useEffect(function () {
-    getRankingList().then((res) => setData(res));
-  }, []);
+    getRankingList().then((res) => setData(res))
+  }, [])
 
   return (
     <div className="ranking-list">
       {data === undefined ? (
-        <p> Cargando... </p>
+        <Loading />
       ) : (
-        data.map((element) => (
-          <img
-            key={element.symbol}
-            className="coin-logo"
-            src={"https://s2.coinmarketcap.com/static/img/coins/64x64/" + element.id + ".png"}
-            loading="lazy"
-            alt={element.symbol}
-          />
-        ))
+        data.map((element) => {
+          return <CryptoRankingItem key={element.id} item={element} />
+        })
       )}
     </div>
-  );
-};
+  )
+}
 
-// CryptoRanking.propTypes = {}
-
-export default CryptoRanking;
+export default CryptoRanking
