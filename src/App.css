@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+/* RESET.CSS MODEL */
 /* Box sizing rules */
 *,
 *::before,
@@ -17,6 +20,8 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  color: white;
+  font-family:  Helvetica, Arial, sans-serif;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -35,6 +40,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: #1e1e1e;
 }
 
 /* A elements that don't have a class get default styles */
@@ -57,40 +63,67 @@ select {
   font: inherit;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+/* CUSTOM.CSS */
+/* Header */
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
-  height: 90vh;
+.header-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
   justify-content: center;
   align-items: center;
 }
 
+.header-logo {
+  width: 50px;
+}
+
+.header-title {
+  padding-left: 10px;
+  font-family: Staatliches;
+}
+
+/* Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
 .heatmap-box {
-  background-color: aqua;
+  background-color: #383838;
   grid-row: 1;
   grid-column: 1;
-
   margin: 1%;
-  height: 50vh;
+  padding: 40px;
+  text-align: center;
 }
 
 .crypto-ranking {
-  background-color: aquamarine;
+  background-color: #383838;
   grid-row: 1;
   grid-column: 2;
-
   margin: 1%;
-  height: 50vh;
+  padding: 40px;
+  text-align: center;
 }
 
 .exchanges-links {
-  background-color: bisque;
+  background-color: #383838;
   grid-row: 2;
   grid-column-start: 1;
   grid-column-end: 3;
-
   margin: 0.5%;
-  height: 40vh;
+  padding: 40px;
+  text-align: center;
 }

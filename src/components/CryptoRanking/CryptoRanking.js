@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import getRankingList from "../../services/getRankingList"
-import CryptoRankingItem from "../CryptoRankingItem/CryptoRanking/CryptoRankingItem"
+import CryptoRankingItem from "../CryptoRankingItem/CryptoRankingItem"
 import Loading from "../Loading/Loading"
 import "./cryptoRanking.css"
 
