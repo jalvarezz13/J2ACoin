@@ -10,8 +10,9 @@ J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas
 ```
 git clone https://github.com/jalvarezz13/isi-J2ACoin
 ```
-  2. Ejecuta ```yarn start``` en el directorio raíz.
-  3. Abre en tu navegador: http://localhost:3000/
+  2. Ejecuta ```python server.py``` en el directorio _api_ para arrancar el servidor.
+  3. Ejecuta ```yarn start``` en el directorio raíz para arrancar el frontend.
+  4. Abre en tu navegador: http://localhost:3000/
 
 ## Capturas
 <div align="center">
