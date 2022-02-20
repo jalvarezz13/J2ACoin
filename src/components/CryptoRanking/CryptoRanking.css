@@ -1,0 +1,12 @@
+.ranking-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin-logo {
+    width: 64px;
+    height: auto;
+}
