@@ -1,7 +1,62 @@
+/* General styles */
+.item-container p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
 .item-container {
+  width: 100%;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 0px;
+  border-bottom: 1px solid white;
+}
+
+/* Styles for prices and changes in the price */
+.change-value-positive {
+  color: #16c784;
+}
+
+.change-value-negative {
+  color: #ea3943;
+}
+
+.change-value-positive::before,
+.change-value-negative::before {
+  font-size: 12px;
+  vertical-align: text-top;
+}
+
+.change-value-positive::before {
+  content: "▲ ";
+}
+
+.change-value-negative::before {
+  content: "▼ ";
+}
+
+/* Styles for the graph of 7d */
+
+.graph-7d-negative,
+.graph-7d-positive {
+  width: 164px;
+  height: 48px;
+  text-align: center;
+  box-sizing: content-box;
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+.graph-7d-positive {
+  filter: hue-rotate(85deg) saturate(80%) brightness(0.85);
+}
+
+.graph-7d-negative {
+  filter: hue-rotate(300deg) saturate(210%) brightness(0.7) contrast(170%);
 }
