@@ -3,12 +3,14 @@ from flask_cors import CORS, cross_origin
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+import time
 
 api = Flask(__name__)
-
 api.config['CORS_HEADERS'] = 'Content-Type'
-
 CORS(api)
+
+# Dictionary to save temporal data to avoid run continuous requests every second
+tempData = {"ranking": [], "heatmap": [], "exchanges": []}
 
 
 @api.route('/ranking', methods=['GET'])
@@ -28,13 +30,15 @@ def get_ranking():
     session = Session()
     session.headers.update(headers)
 
-    try:
-        response = session.get(url, params=parameters)
-        data = json.loads(response.text)
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
-        print(e)
+    if (tempData["ranking"] == [] or ((time.time() - tempData["ranking"][0]) > 60)):
+        try:
+            response = session.get(url, params=parameters)
+            tempData["ranking"].append(time.time())
+            tempData["ranking"].append(json.loads(response.text))
+        except (ConnectionError, Timeout, TooManyRedirects) as e:
+            print(e)
 
-    return data
+    return tempData["ranking"][1]
 
 
 if __name__ == '__main__':
