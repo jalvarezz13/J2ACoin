@@ -115,6 +115,10 @@ select {
   height: auto;
 }
 
+.titles {
+  padding-bottom: 20px;
+}
+
 .crypto-ranking {
   background-color: #383838;
   grid-row: 1;

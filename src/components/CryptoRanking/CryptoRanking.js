@@ -3,6 +3,7 @@ import getRankingList from "../../services/getRankingList"
 import CryptoRankingItem from "../CryptoRankingItem/CryptoRankingItem"
 import Loading from "../Loading/Loading"
 import "./cryptoRanking.css"
+import "../CryptoRankingItem/cryptoRankingItem.css"
 
 const CryptoRanking = () => {
   const [data, setData] = useState()
@@ -13,6 +14,17 @@ const CryptoRanking = () => {
 
   return (
     <div className="ranking-list">
+      {data !== undefined && (
+        <div className="item-container">
+          <p>#</p>
+          <p className="item-name pl-10">Logo</p>
+          <p className="item-name">Nombre</p>
+          <p className="item-name">Precio</p>
+          <p>Cambio 24h</p>
+          <p>Cap. de mercado</p>
+          <p>Cambio 7d</p>
+        </div>
+      )}
       {data === undefined ? (
         <Loading />
       ) : (

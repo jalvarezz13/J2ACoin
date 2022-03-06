@@ -1,26 +1,33 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-
+import strongbox from "../../assets/strongbox.png"
+import pick from "../../assets/pick.png"
 import "./cryptoRankingItem.css"
 
 const CryptoRankingItem = ({ item }) => {
   const [itemData] = useState(item)
+  const proofOf =
+    (itemData.tags.includes("pow") && <img className="proof-of" src={pick} alt="PoW"></img>) ||
+    (itemData.tags.includes("pos") && <img className="proof-of" src={strongbox} alt="PoS"></img>)
 
   return (
     <div className="item-container">
-      <p>{itemData.cmc_rank}</p>
-      <img className="coin-logo" src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${itemData.id}.png`} alt={`Logo de ${itemData.name}`} />
-      <p>
-        {itemData.name}({itemData.symbol})
+      <p className="item-id">{itemData.cmc_rank} </p>
+      <img className="item-logo" src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${itemData.id}.png`} alt={`Logo de ${itemData.name}`} />
+      <p className="item-name">
+        {itemData.name} ({itemData.symbol})
       </p>
-      <p>{itemData.quote.USD.price.toFixed(4)}$</p>
+      <div className="price-container">
+        <span className="item-price">{itemData.quote.USD.price.toFixed(4)} $</span>
+        {proofOf}
+      </div>
       <p className={itemData.quote.USD.percent_change_24h > 0 ? "change-value-positive" : "change-value-negative"}>
         {parseFloat(itemData.quote.USD.percent_change_24h).toFixed(4)}%
       </p>
-      <p>Market cap?</p>
+      <p>{new Intl.NumberFormat("de-DE").format(itemData.quote.USD.market_cap.toFixed(2))}$</p>
       <div className="item-change-7d">
         <div className="item-change-7d-text">
-          <p>Últimos 7 días</p>
+          <p>7 días</p>
           <p className={itemData.quote.USD.percent_change_7d > 0 ? "change-value-positive" : "change-value-negative"}>
             {parseFloat(itemData.quote.USD.percent_change_7d).toFixed(4)}%
           </p>
@@ -36,7 +43,7 @@ const CryptoRankingItem = ({ item }) => {
 }
 
 CryptoRankingItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired
 }
 
 export default CryptoRankingItem

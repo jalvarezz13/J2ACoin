@@ -22,14 +22,17 @@ function App() {
       </header>
       <div className="container">
         <div className="crypto-ranking">
-          <h2>Ranking de Cryptos</h2>
+          <h2 className="titles">Crypto Ranking</h2>
           <CryptoRanking />
         </div>
         <div className="heatmap-box">
-          <h2>HeatMap</h2>
+          <h2 className="titles">Market Map</h2>
           <HeatMap />
         </div>
-        <div className="exchanges-links">Links de Exchanges</div>
+        <div className="exchanges-links">
+          <h2 className="titles">Exchanges</h2>
+          <p>Building...</p>
+        </div>
       </div>
       <footer className="footer">
         <p className="footer-text">Copyright © 2022 J2ACoin. Todos los derechos reservados.</p>

@@ -2,17 +2,17 @@
 .item-container p {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-weight: 300;
 }
 
 .item-container {
   width: 100%;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr 4.5fr 4fr 3fr 6fr 6fr;
+  align-content: center;
   justify-content: space-between;
+  align-items: center;
+  justify-items: stretch;
 
   padding: 10px 0px;
   border-bottom: 1px solid white;
@@ -43,10 +43,22 @@
 
 /* Styles for the graph of 7d */
 
+.item-change-7d-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item-change-7d {
+  display: flex;
+  flex-direction: column;
+}
+
 .graph-7d-negative,
 .graph-7d-positive {
-  width: 164px;
-  height: 48px;
+  width: 100%;
+  height: 50px;
   text-align: center;
   box-sizing: content-box;
   padding-top: 2px;
@@ -59,4 +71,51 @@
 
 .graph-7d-negative {
   filter: hue-rotate(300deg) saturate(210%) brightness(0.7) contrast(170%);
+}
+
+/* Coin logo */
+.item-logo {
+  width: 50px;
+}
+
+/* Item id */
+.item-id {
+  text-align: center;
+}
+
+/* Item price */
+.price-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item-price {
+  font-size: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Proof of ... icon */
+.proof-of {
+  width: 25px;
+  padding-left: 5px;
+}
+
+/* Item name */
+.item-name {
+  text-align: left;
+}
+
+/* MODO MOVIL */
+@media (max-width: 950px) {
+  .item-container {
+    width: 100%;
+  
+    display: flex;
+    flex-direction: column;
+  }
 }
