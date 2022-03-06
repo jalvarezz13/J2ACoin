@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css?family=Staatliches");
+
+/* RESET.CSS MODEL */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: #1e1e1e;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* CUSTOM.CSS */
+/* Header */
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 0px 20px;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  width: 60px;
+}
+
+.header-github-logo {
+  width: 50px;
+}
+
+.header-github-text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+.header-title {
+  padding-left: 10px;
+  font-family: Staatliches;
+}
+
+/* Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  height: auto;
+}
+
+.crypto-ranking {
+  background-color: #383838;
+  grid-row: 1;
+  grid-column: 1;
+  margin: 1%;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.heatmap-box {
+  background-color: #383838;
+  grid-row: 1;
+  grid-column: 2;
+  margin: 1%;
+  padding: 40px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.exchanges-links {
+  background-color: #383838;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: 0.5%;
+  padding: 40px;
+  
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+
+  height: fit-content;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .crypto-ranking {
+    padding: 15px;
+  }
+
+  .heatmap-box {
+    padding: 15px;
+  }
+
+  .exchanges-links {
+    padding: 15px;
+  }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-text {
+  color: lightgray;
+  font-size: 12px;
+}
