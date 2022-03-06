@@ -10,8 +10,9 @@ api.config['CORS_HEADERS'] = 'Content-Type'
 CORS(api)
 
 # Dictionary to save temporal data to avoid run continuous requests every second
-tempData = {"ranking": [], "heatmap": [], "exchanges": []}
-
+tempData = {"ranking": [None, None],
+            "heatmap": [None, None],
+            "exchanges": [None, None]}
 
 @api.route('/ranking', methods=['GET'])
 @cross_origin()
@@ -30,11 +31,11 @@ def get_ranking():
     session = Session()
     session.headers.update(headers)
 
-    if (tempData["ranking"] == [] or ((time.time() - tempData["ranking"][0]) > 60)):
+    if (tempData["ranking"] == [None, None] or ((time.time() - tempData["ranking"][0]) > 60)):
         try:
             response = session.get(url, params=parameters)
-            tempData["ranking"].append(time.time())
-            tempData["ranking"].append(json.loads(response.text))
+            tempData["ranking"][0] = time.time()
+            tempData["ranking"][1] = json.loads(response.text)
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)
 
