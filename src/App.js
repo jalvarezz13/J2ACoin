@@ -13,7 +13,7 @@ function App() {
           <img className="header-logo" src={logo} alt="Logo J2A Coin"></img>
           <h1 className="header-title">J2A Coin</h1>
         </div>
-        <a href="https://github.com/jalvarezz13/isi-J2ACoin" target={"_blank"} rel="noreferrer">
+        <a href="https://github.com/jalvarezz13/isi-J2ACoin" target={"_blank"} rel="noreferrer" className="header-links">
           <div className="header-flex">
             <img className="header-github-logo" src={gitHubLogo} alt="Git Hub icon"></img>
             <p className="header-github-text">GitHub</p>
