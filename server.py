@@ -45,7 +45,7 @@ def get_ranking():
 
 @api.route('/heatmap', methods=['GET'])
 @cross_origin()
-def get_crypto_info():
+def getCryptoDetails():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     parameters = {
         'start': '1',
