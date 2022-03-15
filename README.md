@@ -4,6 +4,10 @@
 ## ¿Qué es J2ACoin?
 J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas Informáticos donde se pretende recoger, modificar y transformar datos obtenidos a partir de diferentes APIs y mostrar al usuario información sobre las diferentes criptomonedas, su evolución e información de compra. Las APIs utilizadas son ofrecidas por grandes empresas del mundo de las criptomonedas como [_Binance_](https://www.binance.com/es/support/faq/c-6), [_Coinbase_](https://developers.coinbase.com/), [_CoinmarketCap_](https://coinmarketcap.com/api/). Por otro lado usaremos [_VirusTotal_](https://developers.virustotal.com/reference/overview) para verificar la seguridad de los enlaces de nuestra página. 
 
+<div align="center">
+  <h4>Consulta los últimos avances del proyecto <a href="https://github.com/jalvarezz13/isi-J2ACoin/projects/2" target="_blank">aquí</a></h4>
+</div>
+
 ## ¿Cómo puedo usar GamesJ3S?
 
   1. Clona el repositorio con 
