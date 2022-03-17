@@ -1,7 +1,7 @@
-from flask import Flask
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
 from requests import Request, Session
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+from flask import Flask
 import json
 import time
 
@@ -13,6 +13,7 @@ CORS(api)
 tempData = {"ranking": [None, None],
             "heatmap": [None, None],
             "exchanges": [None, None]}
+
 
 @api.route('/ranking', methods=['GET'])
 @cross_origin()
@@ -41,10 +42,11 @@ def get_ranking():
 
     return tempData["ranking"][1]
 
-@api.route('/heatmap', methods=['GET'])
+
+@api.route('/heatmap/<slug>', methods=['GET'])
 @cross_origin()
-def getCryptoInfo():
-    url = 'https://data.messari.io/api/v1/assets/btc/metrics/'
+def getCryptoInfo(slug):
+    url = "https://data.messari.io/api/v1/assets/" + slug + "/metrics"
     parameters = {
         'fields': 'name,symbol,market_data/percent_change_usd_last_24_hours,market_data/price_usd'
     }
@@ -62,6 +64,7 @@ def getCryptoInfo():
         print(e)
 
     return json.loads(response.text)
+
 
 if __name__ == '__main__':
     api.run()
