@@ -1,9 +1,11 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
 from requests import Request, Session
+from dotenv import load_dotenv
 from flask import Flask
 import json
 import time
+import os
 
 api = Flask(__name__)
 api.config['CORS_HEADERS'] = 'Content-Type'
@@ -26,7 +28,7 @@ def get_ranking():
     }
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': '5a69cd96-6777-4776-8c13-0e3f2ca6335b',
+        'X-CMC_PRO_API_KEY': os.getenv('COINMARKETCAP_API_KEY'),
     }
 
     session = Session()
