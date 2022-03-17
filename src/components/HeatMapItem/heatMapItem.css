@@ -1,0 +1,103 @@
+.heatmap-item-container,
+.heatmap-item-container-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.heatmap-item-container-loading {
+  background-color: darkgray;
+}
+
+.heatmap-content {
+  color: inherit;
+}
+
+.rated-color-40 {
+  background-color: #77030b;
+  color: white;
+}
+
+.rated-color-35 {
+  background-color: #9f040e;
+  color: white;
+}
+
+.rated-color-30 {
+  background-color: #c70512;
+  color: white;
+}
+
+.rated-color-25 {
+  background-color: #e30613;
+  color: white;
+}
+
+.rated-color-20 {
+  background-color: #f92432;
+  color: white;
+}
+
+.rated-color-15 {
+  background-color: #fa4c58;
+  color: black;
+}
+
+.rated-color-10 {
+  background-color: #fb747d;
+  color: black;
+}
+
+.rated-color-5 {
+  background-color: #fc9ca2;
+  color: black;
+}
+
+.rated-color35 {
+  background-color: #155d15;
+  color: white;
+}
+
+.rated-color30 {
+  background-color: #1a7431;
+  color: white;
+}
+
+.rated-color25 {
+  background-color: #208b3a;
+  color: white;
+}
+
+.rated-color20 {
+  background-color: #25a244;
+  color: white;
+}
+
+.rated-color15 {
+  background-color: #2dc653;
+  color: black;
+}
+
+.rated-color10 {
+  background-color: #4ad66d;
+  color: black;
+}
+
+.rated-color5 {
+  background-color: #6ede8a;
+  color: black;
+}
+
+.rated-color0 {
+  background-color: #92e6a7;
+  color: black;
+}
+
+.rated-color-is-0 {
+  background-color: #fff;
+  color: black;
+}
