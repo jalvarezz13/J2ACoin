@@ -41,6 +41,27 @@ def get_ranking():
 
     return tempData["ranking"][1]
 
+@api.route('/heatmap', methods=['GET'])
+@cross_origin()
+def getCryptoInfo():
+    url = 'https://data.messari.io/api/v1/assets/btc/metrics/'
+    parameters = {
+        'fields': 'name,symbol,market_data/percent_change_usd_last_24_hours,market_data/price_usd'
+    }
+    headers = {
+        'Accepts': 'application/json',
+        'x-messari-api-key': '5f151699-2204-40bc-ac76-6477cc14efc1',
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    try:
+        response = session.get(url, params=parameters)
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        print(e)
+
+    return json.loads(response.text)
 
 if __name__ == '__main__':
     api.run()
