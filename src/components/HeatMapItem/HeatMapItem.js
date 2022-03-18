@@ -20,39 +20,39 @@ const HeatMapItem = ({ slug, style }) => {
         if (data !== undefined) {
           const percent = data.market_data.percent_change_usd_last_24_hours.toFixed(4)
           switch (true) {
-            case percent <= -7.0000:
+            case percent <= -7.0:
               return "rated-color-40"
-            case percent <= -6.0000:
+            case percent <= -6.0:
               return "rated-color-35"
-            case percent <= -5.0000:
+            case percent <= -5.0:
               return "rated-color-30"
-            case percent <= -4.0000:
+            case percent <= -4.0:
               return "rated-color-25"
-            case percent <= -3.0000:
+            case percent <= -3.0:
               return "rated-color-20"
-            case percent <= -2.0000:
+            case percent <= -2.0:
               return "rated-color-15"
-            case percent <= -1.0000:
+            case percent <= -1.0:
               return "rated-color-10"
-            case percent <= 0.0000:
+            case percent <= 0.0:
               return "rated-color-5"
-            case percent > 7.0000:
+            case percent > 7.0:
               return "rated-color35"
-            case percent > 6.0000:
+            case percent > 6.0:
               return "rated-color30"
-            case percent > 5.0000:
+            case percent > 5.0:
               return "rated-color25"
-            case percent > 4.0000:
+            case percent > 4.0:
               return "rated-color20"
-            case percent > 3.0000:
+            case percent > 3.0:
               return "rated-color15"
-            case percent > 2.0000:
+            case percent > 2.0:
               return "rated-color10"
-            case percent > 1.0000:
+            case percent > 1.0:
               return "rated-color5"
-            case percent > 0.0000:
+            case percent > 0.0:
               return "rated-color0"
-            case percent === 0.0000:
+            case percent === 0.0:
               return "rated-color-is-0"
             default:
               return "heatmap-item-container-loading"
@@ -70,17 +70,19 @@ const HeatMapItem = ({ slug, style }) => {
     </div>
   ) : (
     <div className={`heatmap-item-container ${gradeColor}`}>
+      <div className="heatmap-content-title">
+        <p className="heatmap-content" style={style}>
+          {data.name}
+        </p>
+        <p className="heatmap-content" style={style}>
+          ({data.symbol})
+        </p>
+      </div>
       <p className="heatmap-content" style={style}>
-        {data.name}
+        {data.market_data.price_usd.toFixed(2)} $
       </p>
       <p className="heatmap-content" style={style}>
-        {data.symbol}
-      </p>
-      <p className="heatmap-content" style={style}>
-        {data.market_data.price_usd.toFixed(4)}
-      </p>
-      <p className="heatmap-content" style={style}>
-        {data.market_data.percent_change_usd_last_24_hours.toFixed(4)}
+        {data.market_data.percent_change_usd_last_24_hours.toFixed(4)} %
       </p>
     </div>
   )
