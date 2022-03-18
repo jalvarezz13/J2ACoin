@@ -11,10 +11,18 @@ api = Flask(__name__)
 api.config['CORS_HEADERS'] = 'Content-Type'
 CORS(api)
 
-# Dictionary to save temporal data to avoid run continuous requests every second
-tempData = {"ranking": [None, None],
-            "heatmap": [None, None],
-            "exchanges": [None, None]}
+# Variables to save temporal data to avoid run continuous requests every second
+ranking = [None, None]
+heatMap = {"bitcoin": [None, None],
+           "ethereum": [None, None],
+           "tether": [None, None],
+           "bnb": [None, None],
+           "usdc": [None, None],
+           "xrp": [None, None],
+           "terra": [None, None],
+           "solana": [None, None],
+           "cardano": [None, None],
+           "avalanche": [None, None]}
 
 
 @api.route('/ranking', methods=['GET'])
@@ -34,15 +42,15 @@ def get_ranking():
     session = Session()
     session.headers.update(headers)
 
-    if (tempData["ranking"] == [None, None] or ((time.time() - tempData["ranking"][0]) > 60)):
+    if (ranking == [None, None] or ((time.time() - ranking[0]) > 60)):
         try:
             response = session.get(url, params=parameters)
-            tempData["ranking"][0] = time.time()
-            tempData["ranking"][1] = json.loads(response.text)
+            ranking[0] = time.time()
+            ranking[1] = json.loads(response.text)
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)
 
-    return tempData["ranking"][1]
+    return ranking[1]
 
 
 @api.route('/heatmap/<slug>', methods=['GET'])
@@ -60,12 +68,15 @@ def getCryptoInfo(slug):
     session = Session()
     session.headers.update(headers)
 
-    try:
-        response = session.get(url, params=parameters)
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
-        print(e)
+    if (heatMap.get(slug) == [None, None] or ((time.time() - heatMap.get(slug)[0]) > 60)):
+        try:
+            response = session.get(url, params=parameters)
+            heatMap.get(slug)[0] = time.time()
+            heatMap.get(slug)[1] = json.loads(response.text)
+        except (ConnectionError, Timeout, TooManyRedirects) as e:
+            print(e)
 
-    return json.loads(response.text)
+    return heatMap.get(slug)[1]
 
 
 if __name__ == '__main__':
