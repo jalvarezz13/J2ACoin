@@ -79,5 +79,31 @@ def getCryptoInfo(slug):
     return heatMap.get(slug)[1]
 
 
+@api.route('/exchange', methods=['GET'])
+@cross_origin()
+def getExchangeInfo():
+    url = "https://pro-api.coinmarketcap.com/v1/exchange/info"
+    parameters = {
+        'id': '270,89,1149,1561'
+    }
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': os.getenv('COINMARKETCAP_API_KEY')
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    try:
+        response = session.get(url, params=parameters)
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        print(e)
+
+    return json.loads(response.text)
+
+
+
+
+
 if __name__ == '__main__':
     api.run()
