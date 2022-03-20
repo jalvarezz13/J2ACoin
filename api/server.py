@@ -1,7 +1,6 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
-from requests import Request, Session
-from dotenv import load_dotenv
+from requests import Session
 from flask import Flask
 import json
 import time
@@ -23,6 +22,7 @@ heatMap = {"bitcoin": [None, None],
            "solana": [None, None],
            "cardano": [None, None],
            "avalanche": [None, None]}
+exchangeInfo = [None, None]
 
 
 @api.route('/ranking', methods=['GET'])
@@ -94,15 +94,16 @@ def getExchangeInfo():
     session = Session()
     session.headers.update(headers)
 
-    try:
-        response = session.get(url, params=parameters)
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
-        print(e)
+    if (exchangeInfo == [None, None] or ((time.time() - exchangeInfo[0]) > 3600)):
+        print("entro")
+        try:
+            response = session.get(url, params=parameters)
+            exchangeInfo[0] = time.time()
+            exchangeInfo[1] = json.loads(response.text)
+        except (ConnectionError, Timeout, TooManyRedirects) as e:
+            print(e)
 
-    return json.loads(response.text)
-
-
-
+    return exchangeInfo[1]
 
 
 if __name__ == '__main__':
