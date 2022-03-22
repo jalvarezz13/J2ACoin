@@ -1,6 +1,6 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
-from requests import Session
+from requests import Session, request
 from flask import Flask
 import json
 import time
@@ -23,6 +23,7 @@ heatMap = {"bitcoin": [None, None],
            "cardano": [None, None],
            "avalanche": [None, None]}
 exchangeInfo = [None, None]
+
 
 
 @api.route('/ranking', methods=['GET'])
@@ -105,6 +106,32 @@ def getExchangeInfo():
 
     return exchangeInfo[1]
 
-
+@api.route('/urlScore', methods=['POST'])
+@cross_origin()
+def getUrlScore():
+    url = 'https://urlscan.io/api/v1/scan/'
+    headers = {
+        'Accepts': 'application/json',
+        'API-Key': os.getenv('URLSCAN_API_KEY')
+    }
+    data = {
+        'url': request.form["url"],
+        'visibility': 'public'
+    }
+ 
+    session = Session()
+    session.headers.update(headers)
+ 
+    try:
+        response = session.post(url, data)
+        response = json.loads(response.text)
+        print(response)
+        if (response.get("message") == "Submission successful"):
+            time.sleep(10)
+            response = session.get(response.get("api"))
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        print(e)
+ 
+    return json.loads(response.text)
 if __name__ == '__main__':
     api.run()
