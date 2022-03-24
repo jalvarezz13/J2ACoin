@@ -1,10 +1,13 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
 from requests import Session, request
+from dotenv import load_dotenv
 from flask import Flask
 import json
 import time
 import os
+
+load_dotenv()
 
 api = Flask(__name__)
 api.config['CORS_HEADERS'] = 'Content-Type'
@@ -23,7 +26,10 @@ heatMap = {"bitcoin": [None, None],
            "cardano": [None, None],
            "avalanche": [None, None]}
 exchangeInfo = [None, None]
-
+urlScore = {"https://crypto.com/exchange": [None, None],
+            "https://trade.bit2me.com/exchange/BTC-EUR": [None, None],
+            "https://www.binance.com/": [None, None],
+            "https://pro.coinbase.com": [None, None], }
 
 
 @api.route('/ranking', methods=['GET'])
@@ -106,32 +112,34 @@ def getExchangeInfo():
 
     return exchangeInfo[1]
 
+
 @api.route('/urlScore', methods=['POST'])
 @cross_origin()
 def getUrlScore():
+    urlRequested = request.form["url"]
     url = 'https://urlscan.io/api/v1/scan/'
     headers = {
         'Accepts': 'application/json',
         'API-Key': os.getenv('URLSCAN_API_KEY')
     }
     data = {
-        'url': request.form["url"],
+        'url': urlRequested,
         'visibility': 'public'
     }
- 
+
     session = Session()
     session.headers.update(headers)
- 
-    try:
-        response = session.post(url, data)
-        response = json.loads(response.text)
-        print(response)
-        if (response.get("message") == "Submission successful"):
-            time.sleep(10)
-            response = session.get(response.get("api"))
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
-        print(e)
- 
-    return json.loads(response.text)
+
+    if (urlScore.get(urlRequested) == [None, None] or ((time.time() - urlScore.get(urlRequested)[0]) > 3600)):
+        try:
+            response = session.post(url, data)
+            urlScore.get(urlRequested)[0] = time.time()
+            urlScore.get(urlRequested)[1] = json.loads(response.text)
+        except (ConnectionError, Timeout, TooManyRedirects) as e:
+            print(e)
+
+    return urlScore.get(urlRequested)[1]
+
+
 if __name__ == '__main__':
     api.run()
