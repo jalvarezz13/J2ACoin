@@ -8,7 +8,7 @@ import "./app.css"
 
 function App() {
   return (
-    <>
+    <div className="root-app">
       <header className="header">
         <div className="header-flex">
           <img className="header-logo" src={logo} alt="Logo J2A Coin"></img>
@@ -38,7 +38,7 @@ function App() {
       <footer className="footer">
         <p className="footer-text">Copyright © 2022 J2ACoin. Todos los derechos reservados.</p>
       </footer>
-    </>
+    </div>
   )
 }
 

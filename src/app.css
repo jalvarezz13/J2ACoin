@@ -200,3 +200,9 @@ select {
   color: lightgray;
   font-size: 12px;
 }
+
+.root-app {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
