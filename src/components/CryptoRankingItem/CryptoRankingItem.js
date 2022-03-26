@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import strongbox from "../../assets/strongbox.png"
-import pick from "../../assets/pick.png"
+import strongbox from "../../assets/strongbox.svg"
+import pick from "../../assets/pick.svg"
 import "./cryptoRankingItem.css"
 
 const CryptoRankingItem = ({ item }) => {
