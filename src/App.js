@@ -1,6 +1,7 @@
 import React from "react"
 import CryptoRanking from "./components/CryptoRanking/CryptoRanking"
 import HeatMap from "./components/HeatMap/HeatMap"
+import Exchange from "./components/Exchange/Exchange"
 import logo from "./assets/logo.png"
 import gitHubLogo from "./assets/github.svg"
 import "./app.css"
@@ -13,7 +14,7 @@ function App() {
           <img className="header-logo" src={logo} alt="Logo J2A Coin"></img>
           <h1 className="header-title">J2A Coin</h1>
         </div>
-        <a href="https://github.com/jalvarezz13/isi-J2ACoin" target={"_blank"} rel="noreferrer" className="header-links">
+        <a href="https://github.com/jalvarezz13/isi-J2ACoin" target="_blank" rel="noreferrer" className="header-links">
           <div className="header-flex">
             <img className="header-github-logo" src={gitHubLogo} alt="Git Hub icon"></img>
             <p className="header-github-text">GitHub</p>
@@ -31,7 +32,7 @@ function App() {
         </div>
         <div className="exchanges-links">
           <h2 className="titles">Exchanges</h2>
-          <p>Building...</p>
+          <Exchange />
         </div>
       </div>
       <footer className="footer">

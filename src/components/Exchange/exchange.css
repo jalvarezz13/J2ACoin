@@ -1,0 +1,16 @@
+/* Exchange list */
+.exchange-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .exchange-list {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
