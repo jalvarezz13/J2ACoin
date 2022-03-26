@@ -137,7 +137,7 @@ def getUrlScore():
     session = Session()
     session.headers.update(headers)
 
-    if (urlScore.get(urlRequested) == [None, None] or ((time.time() - urlScore.get(urlRequested)[0]) > 3600) or urlScore.get(urlRequested)[1].get("message") != "Submission successful"):
+    if (urlScore.get(urlRequested) == [None, None] or ((time.time() - urlScore.get(urlRequested)[0]) > 3600)):
         try:
             response = session.post(url, data)
             urlScore.get(urlRequested)[0] = time.time()
@@ -153,7 +153,6 @@ def getUrlScore():
 def getUrlData():
     apiUrl = request.form["apiUrl"]
     exchangeUrl = request.form["exchangeUrl"]
-
     headers = {
         'Accepts': 'application/json'
     }
@@ -163,8 +162,11 @@ def getUrlData():
 
     if (urlData.get(exchangeUrl) == [None, None] or ((time.time() - urlData.get(exchangeUrl)[0]) > 3600)):
         try:
-            time.sleep(10)
-            response = session.get(apiUrl)
+            isFound = False
+            while not isFound:
+                time.sleep(1)
+                response = session.get(apiUrl)
+                isFound = "message" not in json.loads(response.text)
             urlData.get(exchangeUrl)[0] = time.time()
             urlData.get(exchangeUrl)[1] = json.loads(response.text)
         except (ConnectionError, Timeout, TooManyRedirects) as e:
