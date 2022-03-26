@@ -1,8 +1,8 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_cors import CORS, cross_origin
-from requests import Session, request
+from requests import Session
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, request
 import json
 import time
 import os
@@ -15,6 +15,7 @@ CORS(api)
 
 # Variables to save temporal data to avoid run continuous requests every second
 ranking = [None, None]
+
 heatMap = {"bitcoin": [None, None],
            "ethereum": [None, None],
            "tether": [None, None],
@@ -25,11 +26,18 @@ heatMap = {"bitcoin": [None, None],
            "solana": [None, None],
            "cardano": [None, None],
            "avalanche": [None, None]}
+
 exchangeInfo = [None, None]
+
 urlScore = {"https://crypto.com/exchange": [None, None],
             "https://trade.bit2me.com/exchange/BTC-EUR": [None, None],
             "https://www.binance.com/": [None, None],
-            "https://pro.coinbase.com": [None, None], }
+            "https://pro.coinbase.com": [None, None]}
+
+urlData = {"https://crypto.com/exchange": [None, None],
+           "https://trade.bit2me.com/exchange/BTC-EUR": [None, None],
+           "https://www.binance.com/": [None, None],
+           "https://pro.coinbase.com": [None, None]}
 
 
 @api.route('/ranking', methods=['GET'])
@@ -86,12 +94,12 @@ def getCryptoInfo(slug):
     return heatMap.get(slug)[1]
 
 
-@api.route('/exchange', methods=['GET'])
-@cross_origin()
+@ api.route('/exchange', methods=['GET'])
+@ cross_origin()
 def getExchangeInfo():
     url = "https://pro-api.coinmarketcap.com/v1/exchange/info"
     parameters = {
-        'id': '270,89,1149,1561'
+        'id': '89,270,1149,1561'
     }
     headers = {
         'Accepts': 'application/json',
@@ -102,7 +110,6 @@ def getExchangeInfo():
     session.headers.update(headers)
 
     if (exchangeInfo == [None, None] or ((time.time() - exchangeInfo[0]) > 3600)):
-        print("entro")
         try:
             response = session.get(url, params=parameters)
             exchangeInfo[0] = time.time()
@@ -113,8 +120,8 @@ def getExchangeInfo():
     return exchangeInfo[1]
 
 
-@api.route('/urlScore', methods=['POST'])
-@cross_origin()
+@ api.route('/urlScore', methods=['POST'])
+@ cross_origin()
 def getUrlScore():
     urlRequested = request.form["url"]
     url = 'https://urlscan.io/api/v1/scan/'
@@ -130,7 +137,7 @@ def getUrlScore():
     session = Session()
     session.headers.update(headers)
 
-    if (urlScore.get(urlRequested) == [None, None] or ((time.time() - urlScore.get(urlRequested)[0]) > 3600)):
+    if (urlScore.get(urlRequested) == [None, None] or ((time.time() - urlScore.get(urlRequested)[0]) > 3600) or urlScore.get(urlRequested)[1].get("message") != "Submission successful"):
         try:
             response = session.post(url, data)
             urlScore.get(urlRequested)[0] = time.time()
@@ -139,6 +146,31 @@ def getUrlScore():
             print(e)
 
     return urlScore.get(urlRequested)[1]
+
+
+@ api.route('/urlData', methods=['POST'])
+@ cross_origin()
+def getUrlData():
+    apiUrl = request.form["apiUrl"]
+    exchangeUrl = request.form["exchangeUrl"]
+
+    headers = {
+        'Accepts': 'application/json'
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    if (urlData.get(exchangeUrl) == [None, None] or ((time.time() - urlData.get(exchangeUrl)[0]) > 3600)):
+        try:
+            time.sleep(10)
+            response = session.get(apiUrl)
+            urlData.get(exchangeUrl)[0] = time.time()
+            urlData.get(exchangeUrl)[1] = json.loads(response.text)
+        except (ConnectionError, Timeout, TooManyRedirects) as e:
+            print(e)
+
+    return urlData.get(exchangeUrl)[1]
 
 
 if __name__ == '__main__':
