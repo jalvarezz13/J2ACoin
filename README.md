@@ -2,7 +2,7 @@
 
 # J2ACoin
 ## ¿Qué es J2ACoin?
-J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas Informáticos donde se pretende recoger, modificar y transformar datos obtenidos a partir de diferentes APIs y mostrar al usuario información sobre las diferentes criptomonedas, su evolución e información de compra. Las APIs utilizadas son ofrecidas por grandes empresas del mundo de las criptomonedas como [_Binance_](https://www.binance.com/es/support/faq/c-6), [_Coinbase_](https://developers.coinbase.com/), [_CoinmarketCap_](https://coinmarketcap.com/api/). Por otro lado usaremos [_VirusTotal_](https://developers.virustotal.com/reference/overview) para verificar la seguridad de los enlaces de nuestra página. 
+J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas Informáticos donde se pretende recoger, modificar y transformar datos obtenidos a partir de diferentes APIs y mostrar al usuario información sobre las diferentes criptomonedas, su evolución e información de compra. Las APIs utilizadas son ofrecidas por grandes empresas del mundo de las criptomonedas como [_CoinmarketCap_](https://coinmarketcap.com/api/) o [_Messari_](https://messari.io/api/docs). Por otro lado usaremos [_UrlScan.io_](https://urlscan.io/) para verificar la seguridad de los enlaces de nuestra página. 
 
 <div align="center">
   <h4>Consulta los últimos avances del proyecto <a href="https://github.com/jalvarezz13/isi-J2ACoin/projects/2" target="_blank">aquí</a></h4>
@@ -21,7 +21,7 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ## Capturas
 <div align="center">
 <h2>Dashboard</h2>
-<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="60%" height="">
+<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="100%" height="">
 </div>
 
 ## Tecnologías
@@ -31,11 +31,14 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-### APIs ~ Backend
-![Binance](https://img.shields.io/badge/Binance-FCD535?style=for-the-badge)
-![Coinbase](https://img.shields.io/badge/Coinbase-0D96F6?style=for-the-badge)
+### Backend
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+
+### APIs
 ![CoinmarketCap](https://img.shields.io/badge/CoinmarketCap-%23D4D4D4.svg?style=for-the-badge)
-![Virus total](https://img.shields.io/badge/-Virus%20Total-%238A4182?style=for-the-badge)
+![URLScan](https://img.shields.io/badge/URLSCAN.io-EB743B?style=for-the-badge&logoColor=BA478F)
+![Messari](https://img.shields.io/badge/Messari-00B2FF?style=for-the-badge&logoColor=white)
 
 ### Otras tecnologías
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
