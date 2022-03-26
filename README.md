@@ -21,7 +21,7 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ## Capturas
 <div align="center">
 <h2>Dashboard</h2>
-<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="60%" height="">
+<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="80%" height="">
 </div>
 
 ## Tecnologías
