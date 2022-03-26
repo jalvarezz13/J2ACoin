@@ -21,7 +21,7 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ## Capturas
 <div align="center">
 <h2>Dashboard</h2>
-<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="80%" height="">
+<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="100%" height="">
 </div>
 
 ## Tecnologías
@@ -32,10 +32,9 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 ### APIs ~ Backend
-![Binance](https://img.shields.io/badge/Binance-FCD535?style=for-the-badge)
-![Coinbase](https://img.shields.io/badge/Coinbase-0D96F6?style=for-the-badge)
 ![CoinmarketCap](https://img.shields.io/badge/CoinmarketCap-%23D4D4D4.svg?style=for-the-badge)
-![Virus total](https://img.shields.io/badge/-Virus%20Total-%238A4182?style=for-the-badge)
+![URLScan](https://img.shields.io/badge/URLSCAN.io-EB743B?style=for-the-badge&logoColor=BA478F)
+![Messari](https://img.shields.io/badge/Messari-00B2FF?style=for-the-badge&logoColor=white)
 
 ### Otras tecnologías
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
