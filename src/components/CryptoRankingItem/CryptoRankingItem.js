@@ -5,6 +5,8 @@ import pick from "../../assets/pick.png"
 import "./cryptoRankingItem.css"
 
 const CryptoRankingItem = ({ item }) => {
+  console.log(item)
+  
   const [itemData] = useState(item)
   const proofOf =
     (itemData.tags.includes("pow") && <img className="proof-of" src={pick} alt="PoW"></img>) ||
@@ -19,6 +21,7 @@ const CryptoRankingItem = ({ item }) => {
       </p>
       <div className="price-container">
         <span className="item-price">{itemData.quote.USD.price.toFixed(4)} $</span>
+        
         {proofOf}
       </div>
       <p className={itemData.quote.USD.percent_change_24h > 0 ? "change-value-positive" : "change-value-negative"}>
