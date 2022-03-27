@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CryptoRankingItem tests Should <CryptoRankingItem /> correctly 1`] = `ShallowWrapper {}`;
-
 exports[`CryptoRankingItem tests Should <CryptoRankingItem /> renders correctly 1`] = `ShallowWrapper {}`;

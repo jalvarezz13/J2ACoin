@@ -71,7 +71,7 @@ const HeatMapItem = ({ slug, style }) => {
   ) : (
     <div className={`heatmap-item-container ${gradeColor}`}>
       <div className="heatmap-content-title">
-        <p className="heatmap-content" style={style}>
+        <p id="heatMapName" className="heatmap-content" style={style}>
           {data.name}
         </p>
         <p className="heatmap-content" style={style}>
