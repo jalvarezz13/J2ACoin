@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CryptoRankingItem tests Should <ExchangeItem /> renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`CryptoRankingItem tests Should show an incorrect name 1`] = `ShallowWrapper {}`;
+
+exports[`CryptoRankingItem tests Should show an incorrect name: Bit2Me4 1`] = `"Bit2Me4"`;
+
+exports[`CryptoRankingItem tests Should show five rrss: Bit2Me4 1`] = `"Bit2Me4"`;

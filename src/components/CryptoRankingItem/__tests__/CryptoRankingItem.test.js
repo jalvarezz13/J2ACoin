@@ -148,9 +148,8 @@ describe("CryptoRankingItem tests", () => {
   })
 
   test("Should show the correct class for a positive change", () => {
-    const wrapper3 = shallow(<CryptoRankingItem item={rightJson} />)
-    const change_24_positive = wrapper3.find("#change_24").props()["className"]
-    console.log(change_24_positive)
+    const wrapper4 = shallow(<CryptoRankingItem item={rightJson} />)
+    const change_24_positive = wrapper4.find("#change_24").props()["className"]
     expect(change_24_positive).toBe("change-value-positive")
   })
 })

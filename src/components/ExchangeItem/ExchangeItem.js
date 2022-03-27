@@ -16,6 +16,7 @@ import lockIcon from "../../assets/lock.svg"
 const ExchangeItem = ({ item }) => {
   const rrssLinks = Object.values(item.urls)
   const [securePercentage, setSecurePercentage] = useState()
+  console.log(item)
 
   useEffect(
     function () {
