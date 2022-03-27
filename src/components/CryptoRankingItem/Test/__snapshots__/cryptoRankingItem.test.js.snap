@@ -1,12 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<a
-  className="normal"
-  href="https://coinmarketcap.com/"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+<div
+  className="item-container"
 >
-  CoinMarketCap
-</a>
+  <p
+    className="item-id"
+  >
+    1
+     
+  </p>
+  <img
+    alt="Logo de Bitcoin"
+    className="item-logo"
+    src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+  />
+  <p
+    className="item-name"
+  >
+    Bitcoin
+     (
+    BTC
+    )
+  </p>
+  <div
+    className="price-container"
+  >
+    <span
+      className="item-price"
+    >
+      44379.3465
+       $
+    </span>
+    <img
+      alt="PoW"
+      className="proof-of"
+      src="pick.png"
+    />
+  </div>
+  <p
+    className="change-value-negative"
+  >
+    -0.0459
+    %
+  </p>
+  <p>
+    842.968.732.920,82
+    $
+  </p>
+  <div
+    className="item-change-7d"
+  >
+    <div
+      className="item-change-7d-text"
+    >
+      <p>
+        7 días
+      </p>
+      <p
+        className="change-value-positive"
+      >
+        5.8318
+        %
+      </p>
+    </div>
+    <img
+      alt="Gráfico a 7 días de Bitcoin"
+      className="graph-7d-positive"
+      src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1.svg"
+    />
+  </div>
+</div>
 `;
