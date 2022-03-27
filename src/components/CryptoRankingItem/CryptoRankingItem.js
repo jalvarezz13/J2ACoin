@@ -21,7 +21,7 @@ const CryptoRankingItem = ({ item }) => {
         <span className="item-price">{itemData.quote.USD.price.toFixed(4)} $</span>
         {proofOf}
       </div>
-      <p className={itemData.quote.USD.percent_change_24h > 0 ? "change-value-positive" : "change-value-negative"}>
+      <p id="change_24" className={itemData.quote.USD.percent_change_24h > 0 ? "change-value-positive" : "change-value-negative"}>
         {parseFloat(itemData.quote.USD.percent_change_24h).toFixed(4)}%
       </p>
       <p>{new Intl.NumberFormat("de-DE").format(itemData.quote.USD.market_cap.toFixed(2))}$</p>
