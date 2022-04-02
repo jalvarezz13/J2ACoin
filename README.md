@@ -15,7 +15,7 @@ J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas
 git clone https://github.com/jalvarezz13/isi-J2ACoin
 ```
   2. Ejecuta ```pip install -r requirements.txt``` en el directorio _api_ para instalas las dependencias del backend incluidas en _requirements.txt_.
-  3. Ejecuta ```python server.py``` en el directorio _api_ para arrancar el servidor.
+  3. Ejecuta ```python3 server.py``` en el directorio _api_ para arrancar el servidor.
   4. Ejecuta ```yarn``` en el directorio raíz para instalar las dependencias del frontend incluidas en el _package.json_.
   5. Ejecuta ```yarn start``` en el directorio raíz para arrancar el frontend.
   6. Abre en tu navegador: http://localhost:3000/
