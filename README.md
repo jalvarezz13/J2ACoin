@@ -1,4 +1,4 @@
-<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/logo.png" width="" height="90" align = "left">
+<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/Frontend/src/assets/logo.png" width="" height="90" align = "left">
 
 # J2ACoin
 ## ¿Qué es J2ACoin?
@@ -23,7 +23,7 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
 ## Capturas
 <div align="center">
 <h2>Dashboard</h2>
-<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/src/assets/captura.png" width="100%" height="">
+<img src="https://github.com/jalvarezz13/isi-J2ACoin/blob/master/Frontend/src/assets/captura.png" width="100%" height="">
 </div>
 
 ## Tecnologías
