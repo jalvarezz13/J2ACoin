@@ -1,0 +1,8 @@
+version: '1.0'
+services:
+  gateway:
+    image: j2acoin/gateway:1.0.1
+  frontend:
+    image: j2acoin/frontend:1.0.1
+    ports:
+      - 3000:3000
