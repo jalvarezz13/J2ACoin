@@ -20,6 +20,8 @@ git clone https://github.com/jalvarezz13/isi-J2ACoin
   5. Ejecuta ```yarn start``` en el directorio _frontend_ para arrancar el frontend.
   6. Abre en tu navegador: http://localhost:3000/
 
+ALTERNATIVA: Si deseas ejecutar la aplicación con Docker sigue las instrucciones [aquí](https://github.com/jalvarezz13/isi-J2ACoin/tree/sprint4) 
+
 ## Capturas
 <div align="center">
 <h2>Dashboard</h2>
