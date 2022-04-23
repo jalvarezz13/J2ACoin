@@ -14,10 +14,10 @@ J2ACoin es una iniciativa que surge en la asignatura de Integración de Sistemas
 ```
 git clone https://github.com/jalvarezz13/isi-J2ACoin
 ```
-  2. Ejecuta ```pip install -r requirements.txt``` en el directorio _backend_ para instalas las dependencias del backend incluidas en _requirements.txt_.
-  3. Ejecuta ```python3 server.py``` en el directorio _backend_ para arrancar el servidor.
-  4. Ejecuta ```yarn``` en el directorio _frontend_ para instalar las dependencias del frontend incluidas en el _package.json_.
-  5. Ejecuta ```yarn start``` en el directorio _frontend_ para arrancar el frontend.
+  2. Ejecuta ```pip install -r requirements.txt``` en el directorio _Gateway_ para instalas las dependencias del backend incluidas en _requirements.txt_.
+  3. Ejecuta ```python3 server.py``` en el directorio _Gateway_ para arrancar el servidor.
+  4. Ejecuta ```yarn``` en el directorio _Frontend_ para instalar las dependencias del frontend incluidas en el _package.json_.
+  5. Ejecuta ```yarn start``` en el directorio _Frontend_ para arrancar el frontend.
   6. Abre en tu navegador: http://localhost:3000/
 
 ALTERNATIVA: Si deseas ejecutar la aplicación con Docker sigue las instrucciones [aquí](https://github.com/jalvarezz13/isi-J2ACoin/tree/sprint4) 
@@ -48,6 +48,7 @@ ALTERNATIVA: Si deseas ejecutar la aplicación con Docker sigue las instruccione
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Autores
 <pre>Javier Álvarez Páramo  <a align="right" title="GitHub" href="https://github.com/jalvarezz13"><img align="right" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/></a><a align="right" title="Linkedin" href="https://www.linkedin.com/in/javieralpa/"><img align="right" src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"/></a></pre>
